@@ -1,1 +1,44 @@
-hello
+<div class="container">
+  <div class="wrapper">
+    <%	[:notice, :error, :alert].each do |level|  %>
+        <%	unless flash[level].blank?  %>
+        <div class="messages">
+        <%=	content_tag :p, flash[level] %>
+        </div>
+        <%	 end %>
+    <%	end  %>
+    <h1 class="logo" title="discount Park & ride - Coming soon"></h1>
+
+    <p>Discount Park and Ride is a travel website that allows customers to research, plan and reserve discount
+      parking and travel services at airports and seaports across the United States and Canada.
+    </p>
+
+
+    <%= form_tag(send_mail_homes_path, :class => "defaultForm", :method => "GET") do %>
+        <div class="fieldBlock">
+          <%= text_field_tag :email,"", :placeholder => "Enter your e-mail"   %>
+          <%= button_tag "Stay Informed", :class=>"btn blueBtn"%>
+        </div>
+    <% end	  %>
+
+    <p>For all press inquiries, please contact us at <a href="mailto:press@discountparkandride.com">press@discountparkandride.com</a>
+    </p>
+
+    <p>If you have an airport or seaport parking lot and would like to be featured on Discount Park and Ride, please
+      email us at <a href="mailto:partners@discountparkandride.com">partners@discountparkandride.com</a></p>
+
+    <div class="hrLine"></div>
+
+    <ul class="networkingIcons clearfix">
+      <li><a href="#" class="facebook" title="Facebook"></a></li>
+      <li><a href="#" class="twitter" title="Twitter"></a></li>
+    </ul>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $(".messages").fadeOut(4000)
+    });
+</script>

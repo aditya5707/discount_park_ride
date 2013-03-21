@@ -2,7 +2,11 @@ DiscountParkRide::Application.routes.draw do
 
 
 
-  resources :homes, :only => :index
+  resources :homes, :only => :index do
+   collection do
+     get :send_mail
+   end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
