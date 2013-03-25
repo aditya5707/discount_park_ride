@@ -58,14 +58,19 @@ module DiscountParkRide
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    require 'tlsmail'
-    Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-    ActionMailer::Base.delivery_method = :sendmail
+    #require 'tlsmail'
+    #Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+    #ActionMailer::Base.delivery_method = :sendmail
     #ActionMailer::Base.delivery_method = :smtp
     ActionMailer::Base.perform_deliveries = true
     ActionMailer::Base.raise_delivery_errors = true
 
-    config.action_mailer.delivery_method = :sendmail
+    config.action_mailer.sendmail_settings = {
+          :location => '/usr/sbin/sendmail',
+          :arguments => '-i -t'
+      }
+
+    #config.action_mailer.delivery_method = :sendmail
     #ActionMailer::Base.smtp_settings = {
     #    :address => "smtp.gmail.com",
     #    :port    => 587,

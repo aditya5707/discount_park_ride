@@ -1,5 +1,5 @@
 body {
-    background: url('body-bg.jpg') top center no-repeat;
+    background: url('body-bg.jpg') top center repeat;
 }
 
 .wrapper {
@@ -111,10 +111,27 @@ p {
 .networkingIcons li a.facebook {
     background-position: 6px 0;
 }
+.networkingIcons li a.facebook:hover {
+    background-position: 6px -44px;
+}
 
 .networkingIcons li a.twitter {
     background-position: -54px 0;
 }
+.networkingIcons li a.twitter:hover {
+    background-position: -54px -44px;
+}
+
+.heading {
+    font-size: 32px;
+    line-height: 34px;
+    color: #8d9393;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+    margin: 50px 0 46px;
+}
+
 .messages {
     padding: 8px 35px 8px 14px;
     margin-bottom: 18px;
