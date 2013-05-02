@@ -15,10 +15,10 @@
     <%= form_tag(send_mail_homes_path, :class => "defaultForm", :method => "GET") do %>
         <div class="fieldBlock">
           <%= text_field_tag :email,"", :placeholder => "Enter your e-mail"   %>
-          <%= button_tag "Stay Informed", :class=>"btn blueBtn"%>
+          <%= button_tag "Stay Informed", :class=>"btn blueBtn", :id => "send_request"%>
         </div>
     <% end	  %>
-
+    <p class="error_message" style="display:none;color: red;">Please Enter Valid Email <p>
     <p>For all press inquiries, please contact us at <a href="mailto:press@discountparkandride.com">press@discountparkandride.com</a>
     </p>
 
@@ -37,6 +37,14 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-      $(".messages").fadeOut(4000)
+      $(".messages").fadeOut(4000);
+      $("#send_request").on("click",function(){
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        if($("#email").val() == "" || !emailReg.test($("#email").val())){
+          $(".error_message").show();
+          $(".error_message").fadeOut(4000);
+          return false;
+        }
+      });
     });
 </script>
